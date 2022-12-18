@@ -101,9 +101,9 @@ struct PipeProvider {
 struct alignas(16) PipeLookupCache {
   // Number of cached pipelines, must be multiply of 4.
 #if BL_TARGET_ARCH_X86
-  static const uint32_t N = 16; // SSE2 friendly option.
+  enum : uint32_t { N = 16 }; // SSE2 friendly option.
 #else
-  static const uint32_t N = 8;
+  enum : uint32_t { N = 8 };
 #endif
 
   struct IndexMatch {
